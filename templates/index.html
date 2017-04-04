@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+
+{% block main %}
+    <table>
+        <tr>
+            <td>{{ user[0]["username"] }}</td>
+        </tr>
+        <tr>
+            <td>Cash on hand: {{ user[0]["cash"] }}</td>
+        </tr>
+        {% for portfoli in portfolio %}
+            <tr>
+                <td>SYMBOL: {{ portfoli.stock }}</td>
+                <td>SHARES: {{ portfoli.shares }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+    <table>
+        Current Price of holdings
+        {% for quote in quotes %}
+            <tr>            
+                <td>Sym: {{ quote.symbol }}</td>
+                <td>Current price: {{ quote.price }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}
